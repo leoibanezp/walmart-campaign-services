@@ -4,6 +4,7 @@ import { mongoosePagination } from "ts-mongoose-pagination";
 
 export type TProductDocument = Product & Document;
 
+@Schema()
 export class Product {
   @Prop()
   id: number;

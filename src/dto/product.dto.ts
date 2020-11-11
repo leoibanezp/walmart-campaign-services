@@ -1,7 +1,8 @@
 import { IsInt, IsPositive, IsNumber, IsOptional } from 'class-validator';
+import { CampaignDto } from './campaign.dto';
 
-export class ProductPriceDto {
-  id: string;
+export class ProductDto {
+  id: number;
 
   @IsPositive()
   @IsNumber()
@@ -16,4 +17,7 @@ export class ProductPriceDto {
   @IsNumber()
   @IsOptional()
   discountRate: number;
+
+  @IsOptional()
+  campaign: CampaignDto;
 }

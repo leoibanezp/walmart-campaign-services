@@ -1,15 +1,14 @@
 import { Controller, Get, Post, Param, Query, Body, UsePipes, ValidationPipe } from '@nestjs/common';
 import { ProductsService } from './products.service';
-import { SearchProductsFilterDto } from './dto/search-product-filter.dto';
+import { SearchProductFilterDto } from '../dto/search-product-filter.dto';
 
 @Controller('products')
 export class ProductsController {
     constructor(private productsService: ProductsService) {}
 
-    @Post()
+    @Get()
     @UsePipes(ValidationPipe)
-    async getProducts(@Body() filterDto: SearchProductsFilterDto) {
-      console.log(filterDto);
+    async getProducts(@Query() filterDto: SearchProductFilterDto) {
       return this.productsService.searchProductsWithFilters(filterDto);
     }
 }
