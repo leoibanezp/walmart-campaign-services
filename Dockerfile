@@ -1,5 +1,5 @@
   FROM node:10-alpine
-  WORKDIR /usr/src/app
+  WORKDIR /src
 
   COPY . .
   RUN npm install
