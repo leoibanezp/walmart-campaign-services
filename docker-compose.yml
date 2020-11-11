@@ -10,20 +10,13 @@ services:
       - /usr/src/app/node_modules
       - .:/usr/src/app
     ports:
-      - ${PORT}:${PORT}
+      - 80:3000
       - 9229:9229
     command: npm run start:dev
     env_file:
       - .env
     networks:
       - socket-network
-    depends_on:
-      - socket-redis
-  socket-redis:
-    image: redis:5
-    networks:
-      - socket-network
 networks:
   socket-network:
-volumes:
-  socket-pgdata:
+
